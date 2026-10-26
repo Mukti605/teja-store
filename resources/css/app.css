@@ -1,0 +1,117 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/*
+ * Token warna bergaya shadcn/ui (background, foreground, primary, dst).
+ * Ubah nilai di :root untuk mengganti seluruh tema toko.
+ * Tidak ada hitam/putih murni: teks memakai biru-teal tua, latar memakai aqua pucat.
+ */
+:root {
+    --radius: 0.75rem;
+    --background: #e9f4f4;
+    --foreground: #12343b;
+    --card: #f6fbfb;
+    --card-foreground: #12343b;
+    --primary: #0b7a8a;
+    --primary-foreground: #f1fbfc;
+    --secondary: #d3e9ed;
+    --secondary-foreground: #12505c;
+    --muted: #dcebee;
+    --muted-foreground: #4f7580;
+    --accent: #ffb020;
+    --accent-foreground: #3a2500;
+    --destructive: #d63b4e;
+    --destructive-foreground: #fff5f6;
+    --border: #bcd8dd;
+    --ring: #0b7a8a;
+    --laptop: #3b5bdb;
+    --hp: #ee5a45;
+    --success: #1f9d6b;
+    --warning: #d98c00;
+    --deep: #0a4b5c;
+}
+
+@theme inline {
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-ring: var(--ring);
+    --color-laptop: var(--laptop);
+    --color-hp: var(--hp);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-deep: var(--deep);
+
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Satu animasi masuk untuk bagian hero; sisanya animasi yang menjawab aksi pengguna. */
+@theme {
+    --animate-rise: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    --animate-pop: pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+
+    @keyframes rise {
+        from {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @keyframes pop {
+        0% {
+            transform: scale(0.6);
+        }
+        60% {
+            transform: scale(1.15);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
